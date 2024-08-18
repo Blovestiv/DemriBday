@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #e0ffff; /* Light cyan background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-family: 'Dancing Script', cursive; /* Fancy font for the title */
+            font-size: 36px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusted for better responsiveness */
+            gap: 20px; /* Adjusted for more spacing */
+            width: 100%;
+            max-width: 1200px; /* Optional: set a maximum width */
+            margin: 0 auto; /* Center gallery */
+        }
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .gallery img {
+            width: 100%;
+            height: 200px; /* Fixed height for uniform image display */
+            object-fit: cover; /* Ensures image covers the container without distortion */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Increased shadow for more depth */
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s ease-in-out;
+        }
+        .caption {
+            margin-top: 10px;
+            font-size: 16px; /* Slightly larger font */
+            font-family: 'Dancing Script', cursive; /* Fancy font for captions */
+            color: #333;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 1024px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjusted for medium screens */
+            }
+        }
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjusted for small screens */
+            }
+        }
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr; /* 1 column on portrait phones */
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <h1>My favorite moments with you</h1>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="Demri1.png" alt="Image 1">
+            <div class="caption">You are so breathtaking in this picture</div>
+        </div>
+        <div class="gallery-item">
+            <img src="Demri2.jpg" alt="Image 2">
+            <div class="caption">This was one of my favorite days</div>
+        </div>
+        <div class="gallery-item">
+            <img src="Demri3.jpg" alt="Image 3">
+            <div class="caption">Looking at you made my heart burst</div>
+        </div>
+        <div class="gallery-item">
+            <img src="Demri4.jpg" alt="Image 4">
+            <div class="caption">I was so happy to hold you</div>
+        </div>
+        <div class="gallery-item">
+            <img src="Demri5.jpg" alt="Image 5">
+            <div class="caption">My partner in crime</div>
+        </div>
+        <div class="gallery-item">
+            <img src="Demri6.jpg" alt="Image 6">
+            <div class="caption">Helping me experience new things</div>
+        </div>
+        <div class="gallery-item">
+            <img src="Demri7.png" alt="Image 7">
+            <div class="caption">So beautiful it's crazy</div>
+        </div>
+        <div class="gallery-item">
+            <img src="Demri8.jpg" alt="Image 8">
+            <div class="caption">One of my favorite vacations</div>
+        </div>
+        <div class="gallery-item">
+            <img src="Demri9.jpg" alt="Image 9">
+            <div class="caption">This spot will always be special to me</div>
+        </div>
+        <div class="gallery-item">
+            <img src="Demri10.jpg" alt="Image 10">
+            <div class="caption">Another amazing moment with the woman I love</div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

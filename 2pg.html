@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua; /* Aqua background */
+        }
+        .prompt-box {
+            width: 300px;
+            padding: 20px;
+            background-color: yellow; /* Yellow box */
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button-yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .button-no {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="prompt-box" id="promptBox">
+        <p id="promptText">Are you the most beautiful girl in the world?</p>
+        <div class="button-container">
+            <button class="button-yes" onclick="handleYes()">Yes</button>
+            <button class="button-no" onclick="handleNo()">No</button>
+        </div>
+    </div>
+    <iframe src="audio.html" style="display:none;"></iframe>
+
+    <script>
+        function handleYes() {
+            const promptText = document.getElementById("promptText");
+            
+            if (promptText.innerText === "Are you the most beautiful girl in the world?") {
+                promptText.innerText = "Do your eyes sparkle like the stars in a clear night sky?";
+            } else if (promptText.innerText === "Do your eyes sparkle like the stars in a clear night sky?") {
+                promptText.innerText = "Are you sure?";
+                document.querySelector(".button-yes").onclick = function() { 
+                    window.location.href = "3rdpg.html"; 
+                };
+                document.querySelector(".button-no").onclick = function() { 
+                    promptText.innerText = "Please stop lying to me.";
+                    document.querySelector(".button-yes").style.display = "none";
+                    document.querySelector(".button-no").innerText = "Okay";
+                    document.querySelector(".button-no").onclick = function() { 
+                        promptText.innerText = "Are you sure?";
+                        document.querySelector(".button-yes").style.display = "inline-block";
+                        document.querySelector(".button-no").innerText = "No";
+                        document.querySelector(".button-no").onclick = handleNo;
+                    };
+                };
+            }
+        }
+
+        function handleNo() {
+            const promptText = document.getElementById("promptText");
+
+            if (promptText.innerText === "Are you the most beautiful girl in the world?") {
+                promptText.innerText = "Why are you lying?";
+                document.querySelector(".button-yes").style.display = "none";
+                document.querySelector(".button-no").innerText = "Okay";
+                document.querySelector(".button-no").onclick = function() { 
+                    promptText.innerText = "Are you the most beautiful girl in the world?";
+                    document.querySelector(".button-yes").style.display = "inline-block";
+                    document.querySelector(".button-no").innerText = "No";
+                    document.querySelector(".button-no").onclick = handleNo;
+                };
+            } else if (promptText.innerText === "Do your eyes sparkle like the stars in a clear night sky?") {
+                promptText.innerText = "Are you delusional?";
+                document.querySelector(".button-yes").style.display = "none";
+                document.querySelector(".button-no").innerText = "Okay";
+                document.querySelector(".button-no").onclick = function() { 
+                    promptText.innerText = "Do your eyes sparkle like the stars in a clear night sky?";
+                    document.querySelector(".button-yes").style.display = "inline-block";
+                    document.querySelector(".button-no").innerText = "No";
+                    document.querySelector(".button-no").onclick = handleNo;
+                };
+            }
+        }
+    </script>
+</body>
+</html>
